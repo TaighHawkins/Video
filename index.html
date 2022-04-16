@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script>
+    (function($) {
+      $(document).ready(function() {
+        // Construct URL object using current browser URL
+        let url = new URL(document.location);
+    
+        // Get query parameters object
+        let params = url.searchParams;
+    
+        let source = params.get("source");
+        let tag = document.getElementById("videoSource")
+        tag.src = source
+
+        let player = document.getElementById("player")
+        player.load()
+      });
+    })(jQuery);
+        </script>
+    </head>
+    <body>
+        <video id="player" controls autoplay muted>
+            <source id="videoSource" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </body>
+</html>
